@@ -21,7 +21,7 @@ app.get("/webhook", (req, res) => {
 
 // Receive messages (POST)
 app.post("/webhook", (req, res) => {
-  console.log(req.body.entry[0].changes[0].contacts.profile.name);
+  console.log(req.body.entry[0].changes[0].contacts[0].profile.name);
   console.log(req.body.entry[0].messages[0].from);
   console.log(req.body.entry[0].messages[0].timestamp);
   console.log(req.body.entry[0].messages[0].text.body);
