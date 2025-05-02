@@ -7,8 +7,7 @@ app.use(bodyParser.json());
 
 // Webhook verification (GET)
 app.get("/webhook", (req, res) => {
-  const VERIFY_TOKEN =
-    "EAAPLJEMHWL4BO0jUX5MFE1MUITTwmVVsA7IPSSiHbM2MkXiDu3ZBjig2ZAeDFdD031k34QaDP0rqPdgvTvZBk8PzKeaJOSTZAdLeKssN4klRXfqKujZAypriuJ4Pwh1T3vk3GsyOcOCENzYxwL2bSeZAiiDYgToYVNbavjGpz2LiRwi0bKUcsqxiNAxRwhfZAbEX78wKws0Yjjpm6yG4i7m5Amx2Flr";
+  const VERIFY_TOKEN = "my-webhook";
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
   const challenge = req.query["hub.challenge"];
