@@ -21,7 +21,12 @@ app.get("/webhook", (req, res) => {
 
 // Receive messages (POST)
 app.post("/webhook", (req, res) => {
-  console.log(JSON.stringify(req.body, null, 2));
+  console.log(req.body.entry[0].contacts.profile.name);
+  console.log(req.body.entry[0].messages.from);
+  console.log(req.body.entry[0].messages.timestamp);
+  console.log(req.body.entry[0].messages.text.body);
+  console.log(req.body.entry[0].messages.type);
+  // console.log(JSON.stringify(req.body, null, 2));
   res.sendStatus(200);
 });
 
