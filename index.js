@@ -21,11 +21,24 @@ app.get("/webhook", (req, res) => {
 
 // Receive messages (POST)
 app.post("/webhook", (req, res) => {
-  console.log(req.body.entry[0].changes[0].value.contacts[0].profile.name);
-  console.log(req.body.entry[0].changes[0].value.messages[0].from);
-  console.log(req.body.entry[0].changes[0].value.messages[0].timestamp);
-  console.log(req.body.entry[0].changes[0].value.messages[0].text.body);
-  console.log(req.body.entry[0].changes[0].value.messages[0].type);
+  // console.log(req.body.entry[0].changes[0].value.contacts[0].profile.name);
+  // console.log(req.body.entry[0].changes[0].value.messages[0].from);
+  // console.log(req.body.entry[0].changes[0].value.messages[0].timestamp);
+  // console.log(req.body.entry[0].changes[0].value.messages[0].text.body);
+  // console.log(req.body.entry[0].changes[0].value.messages[0].type);
+  const contactName =
+    req.body.entry[0].changes[0].value.contacts[0].profile.name;
+  const senderId = req.body.entry[0].changes[0].value.messages[0].from;
+  const timestamp = req.body.entry[0].changes[0].value.messages[0].timestamp;
+  const messageBody = req.body.entry[0].changes[0].value.messages[0].text.body;
+  const messageType = req.body.entry[0].changes[0].value.messages[0].type;
+
+  console.log(`Received message:
+  - Contact Name: ${contactName}
+  - Sender ID: ${senderId}
+  - Timestamp: ${timestamp}
+  - Message Body: ${messageBody}
+  - Message Type: ${messageType}`);
 
   // console.log(JSON.stringify(req.body, null, 2));
   res.sendStatus(200);
